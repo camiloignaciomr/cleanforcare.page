@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    title: "Home Cleaning",
+    description: "Our professional home cleaning service covers everything from regular maintenance to deep cleaning. We ensure your living space is spotless and healthy.",
+    features: [
+      "Regular cleaning maintenance",
+      "Deep cleaning services",
+      "Kitchen and bathroom sanitization",
+      "Floor cleaning and maintenance",
+      "Dusting and surface cleaning",
+      "Window cleaning"
+    ]
+  },
+  {
+    title: "Elderly Care Cleaning",
+    description: "Specialized cleaning services designed for seniors, focusing on creating a safe and healthy environment while being mindful of their specific needs.",
+    features: [
+      "Specialized sanitization",
+      "Allergen reduction cleaning",
+      "Safe cleaning products",
+      "Regular schedule maintenance",
+      "Careful handling of personal items",
+      "Extra attention to accessibility"
+    ]
+  },
+  {
+    title: "Bond Cleaning",
+    description: "Comprehensive end of lease cleaning service to ensure you get your bond back. We follow real estate and property manager requirements.",
+    features: [
+      "Full property cleaning",
+      "Carpet steam cleaning",
+      "Wall and surface cleaning",
+      "Window and track cleaning",
+      "Oven and appliance cleaning",
+      "Guaranteed bond back"
+    ]
+  }
+];
+---
+
+<Layout title="Our Services">
+  <section class="pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center mb-12">Our Services</h1>
+      
+      <div class="space-y-16">
+        {services.map((service, index) => (
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="p-8">
+              <h2 class="text-2xl font-bold mb-4">{service.title}</h2>
+              <p class="text-gray-600 mb-6">{service.description}</p>
+              
+              <div class="grid md:grid-cols-2 gap-4">
+                {service.features.map(feature => (
+                  <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <div class="mt-8">
+                <a
+                  href="/contact"
+                  class="inline-block bg-primary text-white px-6 py-2 rounded-full hover:bg-primary/90 transition-colors"
+                >
+                  Get a Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

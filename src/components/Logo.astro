@@ -1,0 +1,20 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<svg width="150" height="50" viewBox="0 0 150 50" class={className}>
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E84B35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6B58;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <text x="0" y="25" fill="url(#logoGradient)" font-size="24" font-weight="bold">clean</text>
+  <text x="65" y="25" fill="url(#logoGradient)" font-size="24" font-weight="bold">.</text>
+  <text x="75" y="25" fill="url(#logoGradient)" font-size="24" font-weight="bold">for</text>
+  <text x="75" y="45" fill="url(#logoGradient)" font-size="20" font-weight="bold" letter-spacing="2">CARE</text>
+</svg>
