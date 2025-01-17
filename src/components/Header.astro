@@ -4,10 +4,17 @@ import Button from './Button.astro';
 import MobileMenu from './MobileMenu.astro';
 
 const menuItems = [
-  { text: "Home", href: "/" },
-  { text: "Services", href: "/services" },
-  { text: "Contact", href: "/contact" },
+  { href: "/", text: "Home" },
+  { href: "/about", text: "About" },
+  { href: "/services", text: "Services" },
+  { href: "/contact", text: "Contact" },
 ];
+
+let isOpen = false;
+
+function toggleMenu() {
+  isOpen = !isOpen;
+}
 ---
 
 <header class="fixed w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
@@ -29,13 +36,14 @@ const menuItems = [
         <a href="tel:0430599480" class="hidden md:block text-gray-700 hover:text-primary">
           0430 599 480
         </a>
-        <Button href="/contact">
+        <Button href="https://forms.zohopublic.com.au/camiloignaciomrgm1/form/ServiceOrderForm/formperma/d8e5IwGnw9t7-4A6k08DPYttsh6UEweku2nGy_sBcxs">
           Get Quote
         </Button>
         <button 
           id="menu-toggle"
           class="md:hidden text-gray-500 hover:text-primary"
           aria-label="Toggle menu"
+          on:click={toggleMenu}
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -45,5 +53,5 @@ const menuItems = [
     </div>
   </div>
 
-  <MobileMenu menuItems={menuItems} isOpen={false} data-mobile-menu />  
+  <MobileMenu {menuItems} {isOpen} data-mobile-menu />   
 </header>
